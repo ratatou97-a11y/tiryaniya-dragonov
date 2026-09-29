@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Подземелья и Драконы: Хроники Забытых Земель</title>
+    <style>
+        /* Здесь будет CSS — одежда нашего сайта */
+        body {
+            font-family: 'Georgia', serif;
+            background-color: #1a1a1a;
+            color: #e0d5c0;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+        header {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
+                        url('https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=1200');
+            background-size: cover;
+            text-align: center;
+            padding: 80px 20px;
+            color: #f4d03f;
+        }
+        header h1 { font-size: 3em; margin: 0; }
+        section {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+        h2 {
+            color: #f4d03f;
+            border-bottom: 2px solid #8b4513;
+            padding-bottom: 10px;
+        }
+        .character {
+            background: #2a2a2a;
+            border-left: 4px solid #8b4513;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+        }
+        .character h3 { color: #f4d03f; margin: 0 0 5px 0; }
+        .dice-roller {
+            text-align: center;
+            background: #2a2a2a;
+            padding: 30px;
+            border-radius: 8px;
+            border: 2px solid #8b4513;
+        }
+        #diceResult {
+            font-size: 4em;
+            color: #f4d03f;
+            margin: 20px 0;
+            font-weight: bold;
+        }
+        button {
+            background: #8b4513;
+            color: #f4d03f;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.2em;
+            cursor: pointer;
+            border-radius: 4px;
+            font-family: inherit;
+        }
+        button:hover { background: #a0522d; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>⚔️ Тирания Драконов ⚔️</h1>
+        <p>Кампания по Подземельям и Драконам</p>
+    </header>
+
+    <section>
+        <h2>📜 О игре</h2>
+        <p>Добро пожаловать в мир, где древние драконы пробудились от тысячелетнего сна, а в подземельях Элдрии бродят тени забытых королей. Наша группа из четырёх искателей приключений отправляется в опасный поход...</p>
+    </section>
+
+    <section>
+        <h2>🛡️ Персонажи</h2>
+        <div class="character">
+            <h3>Торин Железнобородый</h3>
+            <p><strong>Класс:</strong> Варвар | <strong>Раса:</strong> Дварф | <strong>Уровень:</strong> 5</p>
+            <p>Суровый воин из северных гор, ищущий месть за падение своего клана.</p>
+        </div>
+        <div class="character">
+            <h3>Лиара Серебряная Тень</h3>
+            <p><strong>Класс:</strong> Плут | <strong>Раса:</strong> Эльф | <strong>Уровень:</strong> 5</p>
+            <p>Ловкая разведчица с тёмным прошлым и ещё более тёмными секретами.</p>
+        </div>
+    </section>
+
+    <section>
+        <h2>🎲 Бросок кубика D20</h2>
+        <div class="dice-roller">
+            <div id="diceResult">—</div>
+            <button onclick="rollDice()">Бросить кубик!</button>
+        </div>
+    </section>
+
+    <script>
+        // Здесь будет JavaScript — мозг сайта
+        function rollDice() {
+            const result = Math.floor(Math.random() * 20) + 1;
+            const display = document.getElementById('diceResult');
+            display.textContent = result;
+            
+            // Небольшая магия: критический успех или провал
+            if (result === 20) {
+                display.textContent = '20! 🌟 КРИТ!';
+                display.style.color = '#00ff00';
+            } else if (result === 1) {
+                display.textContent = '1 💀 ПРОВАЛ!';
+                display.style.color = '#ff0000';
+            } else {
+                display.style.color = '#f4d03f';
+            }
+        }
+    </script>
+
+</body>
+</html>

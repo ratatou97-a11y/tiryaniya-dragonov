@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Тирания Драконов | D&D Кампания</title>
+    <style>
+        /* === БАЗОВЫЕ НАСТРОЙКИ === */
+        body {
+            font-family: 'Georgia', serif;
+            background-color: #1a1a1a;
+            color: #e0d5c0;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        /* === ШАПКА === */
+        header {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
+                        url('https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=1200');
+            background-size: cover;
+            background-position: center;
+            text-align: center;
+            padding: 80px 20px;
+            border-bottom: 3px solid #8b4513;
+        }
+        header h1 { 
+            font-size: 3em; 
+            margin: 0; 
+            color: #f4d03f;
+            text-shadow: 2px 2px 4px #000;
+        }
+
+        /* === КОНТЕЙНЕР ДЛЯ КОНТЕНТА === */
+        section {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+        h2 {
+            color: #f4d03f;
+            border-bottom: 2px solid #8b4513;
+            padding-bottom: 10px;
+            margin-bottom: 25px;
+        }
+
+        /* === КАРТОЧКИ ПЕРСОНАЖЕЙ === */
+        .character {
+            display: flex;
+            align-items: center;
+            background: #2a2a2a;
+            border-left: 5px solid #8b4513;
+            padding: 20px;
+            margin-bottom: 25px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+            gap: 25px;
+            transition: transform 0.2s;
+        }
+        .character:hover {
+            transform: translateY(-3px);
+            border-left-color: #f4d03f;
+        }
+        .character-text { flex: 1; }
+        .character h3 {
+            margin-top: 0;
+            color: #f4d03f;
+            font-size: 1.4em;
+        }
+        .char-img {
+            width: 160px;
+            height: 160px;
+            object-fit: cover;
+            border-radius: 8px;
+            border: 2px solid #5c3a21;
+            flex-shrink: 0;
+        }
+
+        /* === ИГРОВОЙ ЖУРНАЛ (НОВОЕ) === */
+        .journal-entry {
+            background: #2a2a2a;
+            border-top: 4px solid #8b4513; /* Акцент сверху, чтобы отличаться от персонажей */
+            padding: 20px;
+            margin-bottom: 25px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+            transition: transform 0.2s, border-top-color 0.2s;
+        }
+        .journal-entry:hover {
+            transform: translateY(-3px);
+            border-top-color: #f4d03f;
+        }
+        .journal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 15px;
+            border-bottom: 1px solid #3a3a3a;
+            padding-bottom: 10px;
+            flex-wrap: wrap; /* Чтобы на мобильных дата переносилась под заголовок */
+            gap: 10px;
+        }
+        .journal-header h3 {
+            margin: 0;
+            color: #f4d03f;
+            font-size: 1.3em;
+        }
+        .journal-date {
+            color: #a08060;
+            font-style: italic;
+            font-size: 0.9em;
+        }
+        .journal-entry p {
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+        .journal-entry p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* === КУБИК D20 === */
+        .dice-roller {
+            text-align: center;
+            background: #2a2a2a;
+            padding: 40px;
+            border-radius: 12px;
+            border: 2px solid #8b4513;
+            margin-top: 50px;
+        }
+        #diceResult {
+            font-size: 5em;
+            color: #f4d03f;
+            margin: 20px 0;
+            font-weight: bold;
+            min-height: 1.2em;
+        }
+        button {
+            background: #8b4513;
+            color: #fff;
+            border: none;
+            padding: 15px 40px;
+            font-size: 1.2em;
+            cursor: pointer;
+            border-radius: 6px;
+            font-family: inherit;
+            transition: background 0.3s;
+        }
+        button:hover { 
+            background: #a0522d; 
+            box-shadow: 0 0 15px rgba(244, 208, 63, 0.4);
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>🐉 Тирания Драконов 🐲</h1>
+        <p>Или путишествия многоходов</p>
+    </header>
+
+    <section>
+        <h2>📜 О игре</h2>
+        <p>Культ дракона снова приступил к открытым действиям. Очевидно, сектанты ищут что-то ценное. Они рыщут по берегу, верша насилие и беспокоя защитников района.</p>
+        <p>Побережье Мечей находится в большой опасности, и все храбрые герои призваны на помощь.</p>
+    </section>
+
+    <section>
+        <h2>🛡️ Ключевые Персонажи</h2>
+        
+        <div class="character">
+            <div class="character-text">
+                <h3>Матарион Дикий Вереск</h3>
+                <p><strong>Класс:</strong> Друид | <strong>Раса:</strong> Лесной эльф | <strong>Уровень:</strong> 4</p>
+                <p>Хранитель древних лесов, говорящий с деревьями и зверями. Его магия рождается из самой земли.</p>
+            </div>
+            <img src="matarion.jpg" alt="Матарион" class="char-img">
+        </div>
+
+        <div class="character">
+            <div class="character-text">
+                <h3>Селина Варденборн Кейли</h3>
+                <p><strong>Класс:</strong> Волшебник | <strong>Раса:</strong> Человек | <strong>Уровень:</strong> 4</p>
+                <p>Учёная магии, постигающая тайны арканных искусств. Каждая книга — ключ к новой силе.</p>
+            </div>
+            <img src="selina.jpg" alt="Селина" class="char-img">
+        </div>
+    </section>
+
+    <!-- НОВЫЙ РАЗДЕЛ: ИГРОВОЙ ЖУРНАЛ -->
+    <section>
+        <h2>📖 Игровой журнал</h2>
+        
+        <div class="journal-entry">
+            <div class="journal-header">
+                <h3>Сессия 1: Тени на Побережье Мечей</h3>
+                <span class="journal-date">15 сентября 2026</span>
+            </div>
+            <p>Группа встретилась в таверне "Пьяный дракон". Местный староста сообщил о странных культистах, замеченных возле старых руин. Матарион почувствовал тревогу в силах природы, а Селина обнаружила в библиотеке упоминания о древнем артефакте.</p>
+            <p><strong>Важная находка:</strong> <em>Странный медальон с символом пятиглавого дракона.</em></p>
+        </div>
+
+        <div class="journal-entry">
+            <div class="journal-header">
+                <h3>Сессия 2: Засада в лесу</h3>
+                <span class="journal-date">22 сентября 2026</span>
+            </div>
+            <p>По пути к руинам группа попала в засаду гоблинов-налетчиков. Благодаря меткому заклинанию Селины и превращению Матариона в огромного медведя, враги были быстро обращены в бегство.</p>
+            <p><strong>Итог:</strong> <em>Гоблины разбежались, но их предводитель успел крикнуть что-то о "Возвышении".</em></p>
+        </div>
+    </section>
+
+    <section>
+        <h2>🎲 Бросок кубика D20</h2>
+        <div class="dice-roller">
+            <div id="diceResult">—</div>
+            <button onclick="rollDice()">Бросить кубик!</button>
+        </div>
+    </section>
+
+    <script>
+        function rollDice() {
+            const result = Math.floor(Math.random() * 20) + 1;
+            const display = document.getElementById('diceResult');
+            
+            display.style.opacity = 0.5;
+            setTimeout(() => {
+                display.textContent = result;
+                display.style.opacity = 1;
+                
+                if (result === 20) {
+                    display.textContent = '20! 🌟 КРИТ!';
+                    display.style.color = '#00ff00';
+                    display.style.textShadow = '0 0 20px #00ff00';
+                } else if (result === 1) {
+                    display.textContent = '1 💀 ПРОВАЛ!';
+                    display.style.color = '#ff4444';
+                    display.style.textShadow = '0 0 20px #ff0000';
+                } else {
+                    display.style.color = '#f4d03f';
+                    display.style.textShadow = 'none';
+                }
+            }, 150);
+        }
+    </script>
+
+</body>
+</html>
