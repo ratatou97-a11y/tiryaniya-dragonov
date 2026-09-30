@@ -236,6 +236,56 @@
             cursor: not-allowed;
             box-shadow: none;
         }
+
+        /* ========================================= */
+        /* === АДАПТИВНОСТЬ ДЛЯ МОБИЛЬНЫХ УСТРОЙСТВ === */
+        /* ========================================= */
+        @media (max-width: 600px) {
+            /* Уменьшаем загаловок, чтобы он не занимал весь экран телефона */
+            header h1 {
+                font-size: 2.2em;
+            }
+            header {
+                padding: 50px 15px;
+            }
+
+            /* Карточки персонажей: выстраиваем в колонку (картинка сверху, текст снизу) */
+            .character {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                border-left: none; /* Убираем левую границу, она плохо смотрится на узких карточках */
+                border-top: 5px solid #8b4513; /* Добавляем верхнюю границу, как в журнале */
+                padding: 20px 15px;
+            }
+            .character:hover {
+                transform: translateY(-3px);
+                border-top-color: #f4d03f; /* Меняем цвет верхней границы при наведении */
+            }
+            .character-text {
+                width: 100%;
+                margin-bottom: 15px; /* Отступ между текстом и картинкой */
+            }
+            .char-img {
+                /* Картинка остается 160px, но теперь она гарантированно по центру */
+                margin: 0 auto;
+            }
+
+            /* Немного уменьшаем кубик для очень маленьких экранов (например, iPhone SE) */
+            #diceResult {
+                width: 120px;
+                height: 120px;
+                line-height: 120px;
+                font-size: 4em;
+            }
+
+            /* Кнопка броска на всю ширину для удобного нажатия большим пальцем */
+            button#rollBtn {
+                width: 100%;
+                max-width: 300px;
+                padding: 15px 20px;
+            }
+        }
     </style>
 </head>
 <body>
